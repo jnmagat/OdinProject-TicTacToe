@@ -75,7 +75,7 @@ let p2Point = 0;
 
         }
         else{
-            if(!board.includes(undefined)){
+            if(board.length ==9 && !board.includes(undefined)){
                 text.innerHTML = "It is a Tie!!";
                 winnerText.appendChild(text);
                 modal.classList.add("show");
