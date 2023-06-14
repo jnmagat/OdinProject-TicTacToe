@@ -26,17 +26,19 @@ let board = [];
 boxes.forEach(box=>{
     player_1 = true;
     box.addEventListener("click",  e =>{
-        if(player_1==true && player_2 == false){
-            box.classList.add("black");
-            board[e.target.id] = 1 ;
-            player_2 = true;
-            player_1 = false;
-        }
-        else if(player_2==true && player_1 == false){
-            box.classList.add("red");
-            board[e.target.id] = 2;
-            player_1 = true;
-            player_2 = false;
+        if(!board[e.target.id]){
+            if(player_1==true && player_2 == false){
+                box.classList.add("black");
+                board[e.target.id] = 1 ;
+                player_2 = true;
+                player_1 = false;
+            }
+            else{
+                box.classList.add("red");
+                board[e.target.id] = 2;
+                player_1 = true;
+                player_2 = false;
+            }
         }
         checkWinner();
     });
@@ -58,7 +60,6 @@ let p2Point = 0;
             }
         } 
         if(p1Point==3){
-            console.log("Player 1 Win");
             player_2 = false;
             text.innerHTML = "Player 1 Wins!";
             winnerText.appendChild(text);
@@ -66,7 +67,6 @@ let p2Point = 0;
             modal.classList.remove("hide");
         }
         else if(p2Point==3){
-            console.log("Player 2 Win");
             player_1 = false;
             text.innerHTML = "Player 2 Wins!";
             winnerText.appendChild(text);
@@ -75,8 +75,16 @@ let p2Point = 0;
 
         }
         else{
-            p1Point = 0;
-            p2Point = 0;
+            if(!board.includes(undefined)){
+                text.innerHTML = "It is a Tie!!";
+                winnerText.appendChild(text);
+                modal.classList.add("show");
+                modal.classList.remove("hide");
+            }
+            else{
+                p1Point = 0;
+                p2Point = 0;
+            }
         }
     }
 }
