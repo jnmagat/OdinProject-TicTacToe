@@ -1,0 +1,58 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.box{
+    border:solid 1px black;
+    padding:25px
+}
+
+.black{
+    background-color: black;
+}
+
+.red{
+    background-color: red;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.container .modal {
+    height: 50%;
+    width: 50%;
+    background-color: rgba(1, 1, 1, 0.8);
+    color: white;
+    padding: 50px;
+    position: absolute;
+}
+.modal_content.button{
+    background-color: white;
+    padding: 20px;
+}
+
+.modal>div{
+    margin-top:110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+.modal button{
+    padding: 10px 25px;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: larger;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bolder;
+}
+.hide{
+    display: none;
+}
+
+.show{
+    display: block;
+}
